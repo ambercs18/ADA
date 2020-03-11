@@ -1,54 +1,35 @@
-import java.util.*;
-public class Met
-{
-	public static void sort(int ar[])
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Met {
+	public static void main(String a[])
 	{
-	int it,j;
-		for(int i=0;i<ar.length;i++)
-		{
-			it=ar[i];
-			j=i-1;
-			while(j>=0&&ar[j]>it)
-			{
-				ar[j+1]=ar[j];
-				j--;
-			}
-			ar[j+1]=it;
-		}
-	}
-	public static void main(String arr[])
-	{
-		Scanner x=new Scanner(System.in);
-		System.out.println("Enter no. of meetings");
-		int n=x.nextInt();
+		int n=6;
 		int s[]=new int[n];
-		int f[]=new int[n];
-		System.out.println("Enter start time");
+		int f[]=new int [n];
+		int p[]=new int [n+1];
+		p[0]=0;
+		Scanner x=new Scanner(System.in);
 		for(int i=0;i<n;i++)
-		s[i]=x.nextInt();
-		System.out.println("Enter end time");
+			s[i]=x.nextInt();
 		for(int i=0;i<n;i++)
-		f[i]=x.nextInt();
-		sort(s);
-		sort(f);
-		int c=1;
-		int j=1;
-		for(int i=0;i<n&&j<n;)
+			f[i]=x.nextInt();
+		for(int i=1;i<=n;i++)
+			p[i]=i;
+		Arrays.sort(f);
+		ArrayList<Integer> l=new ArrayList<>();
+		l.add(p[0]+1);
+		int lim=f[p[1]-1];
+		for(int i=1;i<n;i++)
 		{
-			if(f[i]<=s[j])
+			if(s[i]>=lim)
 			{
-			    System.out.println("Meetings possible "+c+1);
-				i++;
-				j++;
-			}
-			else
-			{
-			c++;
-			j++;
+				l.add(i+1);
+				lim=f[i];
 			}
 		}
-		//System.out.println("No. of meetings possible "+c);
+		System.out.println(l);
 	}
 
 }
-			
