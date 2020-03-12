@@ -18,7 +18,8 @@ public class DFS {
 		}
 		for(int i=0;i<n;i++)
 			v[i]=false;
-		dfs(0);
+		int vv=x.nextInt();
+		dfs(vv);
  
 		int c=0,p=0;
 		for(int i=0;i<n;i++) {
