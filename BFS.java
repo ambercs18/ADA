@@ -25,7 +25,9 @@ public class BFS {
 		}
 		for(int i=0;i<n;i++)
 			v[i]=false;
-		bfs(2);
+		System.out.println("Enter starting vertex");
+		int vv=x.nextInt();
+		bfs(vv);
 
 }
 	public static void bfs(int i)
